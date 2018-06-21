@@ -1,0 +1,4 @@
+services:
+#    kuzmich_task.example:
+#        class: Kuzmich\TaskBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

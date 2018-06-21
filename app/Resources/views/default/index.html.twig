@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br><br><br>
+    {{ render(controller('KuzmichTaskBundle:Task:new')) }}
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>TODO</th>
+                <th>DOING</th>
+                <th>DONE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                {% for task in tasksTODO %}
+                    <h2>{{ task.name }}</h2>
+                    <p>{{ task.description }}</p>
+                    <p>Count of comments: {{ task.countComments }}</p>
+                    {{ render(controller('KuzmichTaskBundle:Task:edit',{'id':task.id})) }}
+                    <hr>
+                {% endfor %}
+                </td>
+                <td>
+                {% for task in tasksDOING %}
+                    <h2>{{ task.name }}</h2>
+                    <p>{{ task.description }}</p>
+                    <p>Count of comments: {{ task.countComments }}</p>
+                    {{ render(controller('KuzmichTaskBundle:Task:edit',{'id':task.id})) }}
+                    <hr>
+                {% endfor %}
+                </td>
+                <td>
+                {% for task in tasksDONE %}
+                    <h2>{{ task.name }}</h2>
+                    <p>{{ task.description }}</p>
+                    <p>Count of comments: {{ task.countComments }}</p>
+                    {{ render(controller('KuzmichTaskBundle:Task:edit',{'id':task.id})) }}
+                    <hr>
+                {% endfor %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body -%}
+    <button class="btn btn-success" data-toggle="modal" data-target="#updateTaskModal{{ task.id }}" data-whatever="@getbootstrap">Edit task</button>
+
+    <div class="bd-example">
+        <div class="modal fade" id="updateTaskModal{{ task.id }}"  tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <br><br><br>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="updateModalLabel">{{ task.name }}</h2>
+                    </div>
+                    <div class="modal-body">
+
+                        {{ form_start(edit_form) }}
+                        <div class="form-group">
+                            <label for="status" class="form-control-label"> Status:</label>
+                            {{ form_widget(edit_form.status,{'attr':{'class':'form-control'}} ) }}
+                        </div>
+                        <div class="form-group">
+                            <label for="comment" class="form-control-label">Comment:</label>
+                            {{ form_widget(edit_form.comment,{'attr':{'class':'form-control'}} ) }}
+                        </div>
+
+                        <h4>Comments:</h4>
+
+                       {% for comment in comments %}
+                           <p><textarea name="comment" readonly>{{ comment.comment }}</textarea></p>
+                       {% endfor %}
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <input class="btn btn-success" type="submit" value="Save">
+                    </div>
+                    {{ form_rest(edit_form) }}
+                    {{ form_end(edit_form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

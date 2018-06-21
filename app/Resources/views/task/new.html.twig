@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<button class="btn btn-success" data-toggle="modal" data-target="#addNewTaskModal">Create task</button>
+<div class="modal fade" id="addNewTaskModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
+    {{ form_start(form) }}
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                <h4 class="modal-title" id="addModalLabel">Create task</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    {{ form_widget(form.name,{'attr':{'class':'form-control'}} ) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    {{ form_widget(form.description,{'attr':{'class':'form-control'}} ) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    {{ form_widget(form.status,{'attr':{'class':'form-control'}} ) }}
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <input class="btn btn-success" type="submit" value="Create">
+            </div>
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

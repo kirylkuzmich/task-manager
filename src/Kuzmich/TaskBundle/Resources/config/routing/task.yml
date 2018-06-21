@@ -1,0 +1,19 @@
+#task_index:
+#    path:     /
+#    defaults: { _controller: "KuzmichTaskBundle:Task:index" }
+#    methods:  GET
+#
+#task_show:
+#    path:     /{id}/show
+#    defaults: { _controller: "KuzmichTaskBundle:Task:show" }
+#    methods:  GET
+
+task_new:
+    path:     /new
+    defaults: { _controller: "KuzmichTaskBundle:Task:new" }
+    methods:  [POST]
+
+task_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KuzmichTaskBundle:Task:edit" }
+    methods:  [GET, POST]

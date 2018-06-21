@@ -1,0 +1,7 @@
+kuzmich_task_task:
+    resource: "@KuzmichTaskBundle/Resources/config/routing/task.yml"
+    prefix:   /task
+
+kuzmich_task_homepage:
+    path:     /
+    defaults: { _controller: KuzmichTaskBundle:Default:index }
